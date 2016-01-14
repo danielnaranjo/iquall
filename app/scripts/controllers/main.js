@@ -8,26 +8,23 @@
  * Controller of the demoApp
  */
 angular.module('demoApp')
-  .controller('MainCtrl', function ($scope, NgMap) {
+  .controller('MainCtrl', function ($scope, NgMap, WSS) {
 	
+	var antennas=WSS.query(function(){
+		$scope.antennas = antennas;
+	});
+
 	$scope.center ='-34.6033,-58.3817';
 	var vm = this;
-	
-// NgMap.getMap().then(function(map) {
-// 	console.log(map.getCenter());
-// 	console.log('markers', map.markers);
-// 	console.log('shapes', map.shapes);
-// });
 
-	var vm = this;
 	NgMap.getMap().then(function(map) {
 		//console.log('map', map);
 		vm.map = map;
 	});
 
-	// vm.clicked = function() {
-	// 	alert('Clicked a link inside infoWindow');
-	// };
+	vm.clicked = function() {
+		alert('Clicked a link inside infoWindow');
+	};
 
 	//radio,mcc,net,area,cell,unit,lon,lat,range,samples,changeable,created,updated,averageSignal
 	vm.antennas = [

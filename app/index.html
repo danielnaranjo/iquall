@@ -60,7 +60,24 @@
     </div>
 
     <div ng-view></div>
-    
+<!--
+  
+    Consigna
+
+    Se adjunta un archivo en formato CSV que contiene un listado de antenas 3G y LTE para un operador en Argentina, con su correspondiente identificación y ubicación geográfica.
+    El archivo tiene el siguiente formato:
+
+    radio,mcc,net,area,cell,unit,lon,lat,range,samples,changeable,created,updated,averageSignal
+    GSM,722,310,7125,16476,,­58.371254,­34.621492,1277,11,1,1304873356,1252429242,­73 GSM,722,310,7181,26876,,­58.371693,­34.614361,16,2,1,1304874687,1304876019,­74
+
+    Deberá implementar una aplicación web que permita al usuario visualizar cierta cantidad de antenas en un mapa, seleccionandolas en los siguientes criterios: tecnología (columna "radio"), ID de celda (columna "cell") o nivel de señal (columna "averageSignal").
+    Permitiendo consultar el detalle de cada una si lo desea o buscar antenas por los siguientes criterios: tecnología (columna "radio"), ID de celda (columna "cell") o nivel de señal (columna "averageSignal").
+
+    Se valorarán el uso de una interfaz cómoda para el usuario ­adecuada a los estándares actuales de diseño­, un correcto diseño del modelo de datos y un código fuente mantenible, pensado para ser trabajado por un equipo.
+
+    Se podrá presentar en forma remota o personalmente en la próxima entrevista. Durante la entrevista se le solicitará que mencione qué tecnologías utilizó, que explique y muestre el trabajo realizado y que comente con qué problemas se encontró al hacerlo y cómo los resolvió.
+
+-->    
     <div class="footer">
       <div class="container">
         <div class="row">
@@ -135,6 +152,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/all.js"></script>
+        <script src="scripts/services/webservices.js"></script>
         <!-- endbuild -->
 
     <script src="http://angulargm.herokuapp.com/angular-gm-0.2.0.min.js"></script>
