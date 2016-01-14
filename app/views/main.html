@@ -1,21 +1,59 @@
-<div class="row" style="margin:-20px;">
+<div class="row moveup" ng-controller="MainCtrl as vm">
   <div class="col-md-12">
-    <iframe class="nospace" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.9969509309394!2d-58.44819585793382!3d-34.60423861036391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca0e5633b5e1%3A0x3f1a5236d66ddfc7!2sIquall+Networks!5e0!3m2!1ses!2sar!4v1452700213744" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <!-- <ng-map zoom="11" center="[{{center}}]">
+      <marker position="[{{center}}]" title="hello"></marker>
+    </ng-map> -->
+
+    <ng-map default-style="true" center="[{{center}}]" zoom="10">
+      <marker id='{{antenna.id}}' position="{{antenna.position}}"
+        ng-repeat="antenna in vm.antennas"
+        on-click="vm.showDetail(antenna)">
+      </marker>
+
+      <info-window id="foo-iw">
+        <div ng-non-bindable="">
+          Cell: {{vm.antenna.cell}}<br/>
+          Bandas: {{vm.antenna.radio}}<br/>
+          Señal: {{vm.antenna.averagesignal}}<br/>
+          <a href="javascript:;" ng-click="vm.clicked()">Ver mas</a>
+        </div>
+      </info-window>
+    </ng-map>
+    <a href="javascript:;" class="pull-rigth" ng-click="vm.hideDetail(e, vm.antenna)" style="margin-left:20px;">ocultar info</a>
+
   </div>
 </div>
-<div class="container">
+<div class="container" id="list">
   <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <h3>Antena</h3>
-      <p>
-        descripcion
-      </p>
+
+    <div class="col-md-12 col-sm-6 col-xs-12">
+      <h2>Cargando información..</h2>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <h3>Ubicacion</h3>
-      <p>
-        descripcion
-      </p>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <h3>Tecnología</h3>
+      <ul>
+        <li>Bandas: radio</li>
+        <li>Signal: averageSignal</li>
+        <li>Bateria: changeable</li>
+      </ul>
+    </div>
+    <div class="col-md-4 col-sm-3 col-xs-12">
+      <h3>Información adicional</h3>
+      <ul>
+        <li>ID: mcc Red: net</li>
+        <li>Area: area Celda: cell Unidad: unit</li>
+        <li>Rango: range samples</li>
+      </ul>
+    </div>
+    <div class="col-md-4 col-sm-3 col-xs-12">
+      <h3>Ubicación</h3>
+      <ul>
+        <li>Geolocalización: lat, lon</li>
+        <li>Operativa desde: created</li>
+        <li>Ultimo mantenimiento: updated</li>
+      </ul>
     </div>
   </div>
 </div>

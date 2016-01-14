@@ -11,7 +11,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  // font-family: 'Roboto', sans-serif !important;
+  font-weight: light;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -66,10 +67,14 @@ body {
       margin: 0;
 
       a {
-        color: #fff;
+        color: #fff !important;
       }
     }
   }
+}
+
+thead {
+  font-weight: bold;
 }
 
 .container {
@@ -80,6 +85,28 @@ body {
     padding: 0 !important;
     width: 100% !important;
     height: 450px;
+  }
+
+  .minimum {
+    min-height: 500px;
+  }
+
+}
+
+.moveup {
+  margin:-20px;
+}
+
+#list {
+  margin-bottom: 50px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
   }
 
 }

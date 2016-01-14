@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMap',
+    'angularMoment',
+    'angular-loading-bar'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,10 +27,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/all', {
+        templateUrl: 'views/all.html',
+        controller: 'AllCtrl',
+        controllerAs: 'all'
       })
       .otherwise({
         redirectTo: '/'

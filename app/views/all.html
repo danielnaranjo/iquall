@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 minimum">
+    	<h2 ng-hide="antennas">Cargando información..</h2>
+      	<h3 ng-show="antennas">Antenas instaladas hasta la fecha</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Tecnología</td>
+					<td>MCC</td>
+					<td>Red</td>
+					<td>Area</td>
+					<td>Celda</td>
+					<td>Unidad</td>
+					<td>Ubicación</td>
+					<td>Rango</td>
+					<td>Prueba</td>
+					<td>Bateria</td>
+					<td>Instalación</td>
+					<td>Revisión</td>
+					<td>Señal</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="a in antennas">
+					<td>{{a.radio}}</td>
+					<td>{{a.mcc}}</td>
+					<td>{{a.net}}</td>
+					<td>{{a.area}}</td>
+					<td>{{a.cell}}</td>
+					<td>{{a.unit}}</td>
+					<td>{{a.position[0]}},{{a.position[1]}}</td>
+					<td>{{a.range}}</td>
+					<td>{{a.samples}}</td>
+					<td>{{a.changeable}}</td>
+					<td>{{a.created}}</td>
+					<td>{{a.updated}}</td>
+					<td>{{a.averagesignal}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+			<li>
+				<a href="#" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li>
+				<a href="#" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+			</ul>
+		</nav>
+    </div>
+  </div>
+</div>

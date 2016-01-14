@@ -8,10 +8,41 @@
  * Controller of the demoApp
  */
 angular.module('demoApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, NgMap) {
+	
+	$scope.center ='-34.6033,-58.3817';
+	var vm = this;
+	
+// NgMap.getMap().then(function(map) {
+// 	console.log(map.getCenter());
+// 	console.log('markers', map.markers);
+// 	console.log('shapes', map.shapes);
+// });
+
+	var vm = this;
+	NgMap.getMap().then(function(map) {
+		//console.log('map', map);
+		vm.map = map;
+	});
+
+	// vm.clicked = function() {
+	// 	alert('Clicked a link inside infoWindow');
+	// };
+
+	//radio,mcc,net,area,cell,unit,lon,lat,range,samples,changeable,created,updated,averageSignal
+	vm.antennas = [
+		{radio:'GSM', mcc: 123, net:123, cell: 123, unit: 123, position:[-34.5033,-58.4817], range:123, samples:123, changeable:1, created:1234, updated:1234, averagesignal:123},
+		{radio:'GSM', mcc: 123, net:123, cell: 123, unit: 123, position:[-34.6033,-58.3817], range:123, samples:123, changeable:1, created:1234, updated:1234, averagesignal:123}
+	];
+	vm.antenna = vm.antennas[0];
+
+	vm.showDetail = function(e, antenna) {
+		vm.antenna = antenna;
+		vm.map.showInfoWindow('foo-iw', antenna.id);
+	};
+
+	vm.hideDetail = function() {
+		vm.map.hideInfoWindow('foo-iw');
+	};
+
   });
