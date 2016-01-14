@@ -18,7 +18,6 @@ angular.module('demoApp')
 	var vm = this;
 
 	NgMap.getMap().then(function(map) {
-		//console.log('map', map);
 		vm.map = map;
 	});
 
@@ -28,8 +27,7 @@ angular.module('demoApp')
 
 	//radio,mcc,net,area,cell,unit,lon,lat,range,samples,changeable,created,updated,averageSignal
 	vm.antennas = [
-		{radio:'GSM', mcc: 123, net:123, cell: 123, unit: 123, position:[-34.5033,-58.4817], range:123, samples:123, changeable:1, created:1234, updated:1234, averagesignal:123},
-		{radio:'GSM', mcc: 123, net:123, cell: 123, unit: 123, position:[-34.6033,-58.3817], range:123, samples:123, changeable:1, created:1234, updated:1234, averagesignal:123}
+		{radio:'GSM', mcc: 722, net:310, area: 7125, cell: 16476, unit: '', position:[-58.37125,-34.62149], ranges:1277, samples:11, changeable:1, createdAt:1304873356, updatedAt:1252429242, averagesignal:-73}
 	];
 	vm.antenna = vm.antennas[0];
 
