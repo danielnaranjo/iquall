@@ -18,7 +18,7 @@
 
     </ng-map>
     
-    <!-- <a ng-show="antennas" href="javascript:;" class="pull-right" ng-click="hideDetail(e, antenna)">ocultar info</a> -->
+    <a ng-show="antennas" href="javascript:;" class="pull-right" ng-click="hideDetail(e, antenna)">ocultar info</a>
 
   </div>
 </div>
@@ -30,12 +30,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12" ng-show="antenna">
+    <div class="col-md-4 col-sm-3 col-xs-12" ng-show="antenna">
       <h3>Tecnología</h3>
       <ul>
         <li>Bandas: {{antenna.radio}}</li>
         <li ng-show="antenna.averageSignal">Signal: {{antenna.averageSignal}}</li>
-        <li>Bateria: {{antenna.changeable}}</li>
+        <li>Bateria: {{antenna.changeable|bateria}}</li>
       </ul>
     </div>
     <div class="col-md-4 col-sm-3 col-xs-12" ng-show="antenna">
@@ -46,10 +46,10 @@
         <li>Range: {{antenna.ranges}} {{antenna.samples}}</li>
       </ul>
     </div>
-    <div class="col-md-4 col-sm-3 col-xs-12" ng-show="antenna">
+    <div class="col-md-4 col-sm-6 col-xs-12" ng-show="antenna">
       <h3>Ubicación</h3>
       <ul>
-        <li>Dirección: {{address}}</li>
+        <li ng-show="address">Dirección: {{address}}</li>
         <li>Geolocalización: {{antenna.lat}}, {{antenna.lon}}</li>
         <li>Operativa desde: <span am-time-ago="antenna.created"></span></li>
         <li>Ultimo mantenimiento: <span am-time-ago="antenna.updated"></span></li>

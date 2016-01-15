@@ -8,12 +8,12 @@
  * Controller of the demoApp
  */
 angular.module('demoApp')
-  .controller('MainCtrl', function ($scope, NgMap, $http, $location, locationService) {
+  .controller('MainCtrl', function ($scope, NgMap, $http, $location, locationService, uAPI) {
 
 	$scope.getData =  function() {
 		$http({
 			method: 'GET',
-			url: 'http://localhost:8890/iquall/api/antennas'
+			url: uAPI+'?&l=250&order=cID&sort=ASC'
 		})
 		.success(function(data){
 			$scope.antennas=data;
@@ -34,7 +34,7 @@ angular.module('demoApp')
 	$scope.showDetail = function(e, antenna) {
 		$scope.antenna = antenna;
 		$scope.map.showInfoWindow('foo-iw', antenna.id);
-		console.log($scope.antenna);
+		// console.log($scope.antenna);
 
 		locationService.getLocation($scope.antenna.lat+','+$scope.antenna.lon)
 		.then(function(location){
@@ -43,8 +43,8 @@ angular.module('demoApp')
 			location.results[0].address_components[2].short_name+', ' +
 			location.results[0].address_components[5].short_name;
 			$scope.address = itemLocation;
-			console.log('Ubicacion: ', itemLocation);
-			console.log('Full: ', location.results[0]);
+			// console.log('Ubicacion: ', itemLocation);
+			// console.log('Full: ', location.results[0]);
 		},
 		function(error){
 			console.log('Error: Cant connect with Google Maps API')
@@ -56,8 +56,8 @@ angular.module('demoApp')
 	};
 
 	$scope.searchable = function() {
-		$location.path('/all')
-	}
+		$location.path('/all');
+	};
 
 
   });

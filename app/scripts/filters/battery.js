@@ -10,13 +10,11 @@
  */
 angular.module('demoApp')
   .filter('bateria', function () {
-    return function (input) {
-		var bat = '';
-		if(input == 1) {
-			bat = 'Changeable';
+  	return function (input) {
+		if(input==1) {
+			return 'Changeable';
 		} else {
-			bat = 'No available';
+			return 'No available';
 		}
-		return bar;
     };
   });

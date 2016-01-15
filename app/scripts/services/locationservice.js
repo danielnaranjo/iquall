@@ -15,7 +15,7 @@ angular.module('demoApp')
      return {
        getLocation: function(latlng){
        return $http({
-          url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latlng+"&sensor=true", //*** location service URL here ***
+          url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latlng+"&sensor=true",
           method: "GET",
           }).then(function(response){
               locations = response.data;

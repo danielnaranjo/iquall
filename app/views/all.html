@@ -1,9 +1,14 @@
-<div class="container">
+<div class="container" ng-init="getList()">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12 minimum">
     	<h2 ng-hide="antennas">Cargando información..</h2>
       	<h3 ng-show="antennas">Antenas instaladas hasta la fecha</h3>
-		<table class="table table-striped" ng-show="antennas">
+		<form class="navbar-form navbar-right" ng-controller="MainCtrl">
+			<div class="form-group">
+				<input ng-model="filtrar" class="form-control" type="search" placeholder="Filtrar por..">
+			</div>
+		</form>
+		<table class="table table-hover" ng-show="antennas">
 			<thead>
 				<tr>
 					<td>Tecnología</td>
@@ -22,8 +27,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="a in antennas | filter:data">
-					<td>{{a.radio}}</td>
+				<tr ng-repeat="a in antennas|filter:data">
+					<td><strong>{{a.radio}}</strong></td>
 					<td>{{a.mcc}}</td>
 					<td>{{a.net}}</td>
 					<td>{{a.area}}</td>
@@ -32,30 +37,25 @@
 					<td>{{a.lon}},{{a.lat}}</td>
 					<td>{{a.range}}</td>
 					<td>{{a.samples}}</td>
-					<td>{{a.changeable}}</td>
-					<td><span am-time-ago="{{a.created}}"></span></td>
-					<td><span am-time-ago="{{a.updated}}"></span></td>
-					<td>{{a.averageSignal}}</td>
+					<td>{{a.changeable|bateria}}</td>
+					<td><span am-time-ago="a.created"></span></td>
+					<td><span am-time-ago="a.updated"></span></td>
+					<td><strong>{{a.averageSignal}}</strong></td>
 				</tr>
 			</tbody>
 		</table>
 		<nav ng-show="antennas">
 			<ul class="pagination">
-			<li>
-				<a href="#" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span>
-				</a>
-			</li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li>
-				<a href="#" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span>
-				</a>
-			</li>
+				<li>
+					<a href="#/all?p=" aria-label="Previous">
+						<span aria-hidden="true">&laquo; Anterior</span>
+					</a>
+				</li>
+				<li>
+					<a href="#/all?p=" aria-label="Next">
+						<span aria-hidden="true">Siguiente &raquo;</span>
+					</a>
+				</li>
 			</ul>
 		</nav>
     </div>

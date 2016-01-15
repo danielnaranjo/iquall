@@ -20,6 +20,7 @@ angular
     'angularMoment',
     'angular-loading-bar'
   ])
+  .constant('uAPI', 'http://loultimoenlaweb.com/iquall/api/antennas')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
