@@ -47,7 +47,7 @@
             </ul>
             <ul class="nav navbar-nav pull-right">
               <li>
-                <form action="" class="navbar-form navbar-right">
+                <form class="navbar-form navbar-right" ng-controller="MainCtrl" ng-click="searchable()">
                   <div class="form-group">
                     <input ng-model="data" class="form-control" type="search" placeholder="Filtrar por..">
                   </div>
@@ -153,6 +153,8 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/all.js"></script>
         <script src="scripts/services/webservices.js"></script>
+        <script src="scripts/filters/battery.js"></script>
+        <script src="scripts/services/locationservice.js"></script>
         <!-- endbuild -->
 
     <script src="http://angulargm.herokuapp.com/angular-gm-0.2.0.min.js"></script>

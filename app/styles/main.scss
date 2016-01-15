@@ -45,6 +45,10 @@ body {
   }
 }
 
+.navbar {
+    border-radius: 0 !important;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background-color: #56152A !important;
 }
@@ -97,7 +101,7 @@ thead {
 }
 
 .moveup {
-  margin:-20px;
+  margin:-20px 0 20px 0;
 }
 
 #list {
@@ -112,4 +116,20 @@ thead {
     }
   }
 
+}
+
+
+
+.ng-map-info-window {
+  background-color: #7F1F3E;
+  color: #fff;
+}
+.ng-map-info-window div:first-child > div:nth-child(1) {
+  border-top-color: #7F1F3E !important;
+}
+.ng-map-info-window div:first-child > div:nth-child(3) div {
+  background-color: transparent !important;
+}
+.ng-map-info-window div:first-child > div:nth-child(4) {
+  background-color: transparent !important;
 }

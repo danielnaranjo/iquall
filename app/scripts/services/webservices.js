@@ -9,8 +9,8 @@
  */
 angular.module('demoApp')
   .factory('WebServices', function ($resource) {
-    return $resource('http://localhost:1337/antennas');
+    return $resource('http://localhost:8890/iquall/api/antennas');
   })
   .factory('WSS', function ($resource) {
-    return $resource('http://localhost:1337/antennas?limit=30');
+    return $resource('http://localhost:8890/iquall/api/antennas');
   });
